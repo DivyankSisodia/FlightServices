@@ -83,19 +83,20 @@ const get = async (req, res) => {
 
 const getAll = async (req, res) => {
     try {
-        const cities = await cityService.getAllCities();
+        console.log(req.query);
+        const cities = await cityService.getAllCities(req.query);
         return res.status(200).json({
             data: cities,
             success: true,
             messgae: "successfully listed all the city",
             err: {}
         
-        })
+        });
     } catch (error) {
         return res.status(500).json({
             data: {},
             success: false,
-            messgae: "failed to get the city",
+            messgae: "failed to get the desired city",
             err: error
         });
     }
