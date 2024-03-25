@@ -7,11 +7,10 @@ class CityService {
 
     async createCity(data) {
         try {
-            const city = await this.cityRepository.createCity(data);
-            return city;
-        }
-        catch (err) {
-            throw { err }
+            const cities = await this.cityRepository.createCity(data);
+            return cities;
+        } catch (err) {
+            throw { err };
         }
     }
 

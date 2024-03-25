@@ -1,4 +1,4 @@
-const { CityService } = require('../services/index');
+const {CityService} = require('../services/index');
 
 const cityService = new CityService();
 
@@ -89,7 +89,6 @@ const getAll = async (req, res) => {
             success: true,
             messgae: "successfully listed all the city",
             err: {}
-
         });
     } catch (error) {
         return res.status(500).json({
