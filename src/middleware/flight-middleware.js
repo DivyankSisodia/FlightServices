@@ -1,3 +1,5 @@
+const { ClientErrors } = require('../utils/error-codes')
+
 const validateCreateFlight = (req, res, next) => {
     if (
         !req.body.flightNumber ||
@@ -9,7 +11,7 @@ const validateCreateFlight = (req, res, next) => {
         !req.body.price
     ) {
         // if any of the body params is missing then we will show an error
-        return res.status(400).json({
+        return res.status(ClientErrors.BAD_REQUEST).json({
             message: 'missing required field',
             data: {},
             success: false,
